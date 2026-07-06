@@ -1,22 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindo</class>
- <widget class="QMainWindow" name="MainWindo">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>966</height>
+    <width>845</width>
+    <height>684</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Калькулятор скидок</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f0f2f5;  
+}
+QGroupBox {
+    border: 2px solid #d0d7de;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+QGroupBox::title {
+    left: 10px;
+    padding: 0 5px;
+    color: #1a73e8;
+}
+QPushButton {
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 4px;
+    padding: 6px;
+}
+QPushButton:hover {
+    background-color: #1557b0;
+}
+QLabel {
+    color: #202124;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
       <property name="currentIndex">
        <number>1</number>
       </property>
@@ -29,9 +62,14 @@
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>351</width>
-          <height>201</height>
+          <width>321</width>
+          <height>171</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="accessibleDescription">
          <string/>
@@ -47,6 +85,19 @@
         </property>
         <layout class="QFormLayout" name="formLayout">
          <item row="0" column="0">
+          <spacer name="verticalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="0">
           <widget class="QLabel" name="label_price">
            <property name="text">
             <string>Цена(₽)</string>
@@ -54,51 +105,26 @@
           </widget>
          </item>
          <item row="2" column="0">
+          <spacer name="verticalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="0">
           <widget class="QLabel" name="label_discount">
            <property name="text">
             <string>Скидка(%)</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QPushButton" name="add_discount_btn">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Добавить скидку</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QDoubleSpinBox" name="price_input">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="maximum">
-            <double>999999.989999999990687</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
+         <item row="3" column="1">
           <widget class="QDoubleSpinBox" name="discount_input">
            <property name="minimumSize">
             <size>
@@ -117,7 +143,65 @@
            </property>
           </widget>
          </item>
+         <item row="4" column="1">
+          <spacer name="verticalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
          <item row="5" column="0">
+          <widget class="QPushButton" name="add_discount_btn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Добавить скидку</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="7" column="0">
+          <spacer name="verticalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="8" column="0">
           <widget class="QPushButton" name="clear_discount_btn">
            <property name="minimumSize">
             <size>
@@ -136,23 +220,7 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="QListWidget" name="discount_list">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>30</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
+         <item row="8" column="1">
           <widget class="QPushButton" name="calc_btn">
            <property name="minimumSize">
             <size>
@@ -171,48 +239,203 @@
            </property>
           </widget>
          </item>
+         <item row="10" column="0">
+          <spacer name="verticalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="5" column="1">
+          <widget class="QListWidget" name="discount_list">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDoubleSpinBox" name="price_input">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>120</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <double>999999.989999999990687</double>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <spacer name="verticalSpacer_16">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
         </layout>
        </widget>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>230</y>
-          <width>351</width>
-          <height>81</height>
+          <y>190</y>
+          <width>321</width>
+          <height>101</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="title">
          <string>Результаты расчёта</string>
         </property>
         <layout class="QFormLayout" name="formLayout_2">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_final">
+          <spacer name="verticalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="final_price_label">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
-            <string>Итоговая цена</string>
+            <string>0.00 ₽</string>
            </property>
           </widget>
          </item>
          <item row="2" column="0">
+          <spacer name="verticalSpacer_13">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="0">
+          <spacer name="verticalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="4" column="0">
           <widget class="QLabel" name="label_saved">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Экономия</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="4" column="1">
           <widget class="QLabel" name="saved_label">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>0.00 ₽</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="final_price_label">
+         <item row="6" column="0">
+          <spacer name="verticalSpacer_14">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_final">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
-            <string>0.00 ₽</string>
+            <string>Итоговая цена</string>
            </property>
           </widget>
+         </item>
+         <item row="5" column="0">
+          <spacer name="verticalSpacer_15">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -220,50 +443,57 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>320</y>
-          <width>351</width>
-          <height>211</height>
+          <y>300</y>
+          <width>321</width>
+          <height>212</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="title">
          <string>Фото товара</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="5" column="1">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
+         <item row="1" column="0" rowspan="5">
+          <widget class="QLabel" name="image_label">
+           <property name="minimumSize">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>150</width>
+             <height>150</height>
             </size>
            </property>
-          </spacer>
-         </item>
-         <item row="6" column="1">
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
+           <property name="text">
+            <string>Фото товара</string>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
-          </spacer>
+          </widget>
          </item>
          <item row="3" column="1">
           <widget class="QPushButton" name="clear_image_btn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Удалить фото</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <spacer name="verticalSpacer_3">
+         <item row="6" column="1">
+          <spacer name="verticalSpacer_5">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -277,6 +507,18 @@
          </item>
          <item row="1" column="1">
           <widget class="QPushButton" name="load_image_btn">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
+           </property>
            <property name="text">
             <string>Загрузить фото</string>
            </property>
@@ -295,31 +537,40 @@
            </property>
           </spacer>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="image_label">
+         <item row="5" column="1">
+          <widget class="QPushButton" name="save_btn">
            <property name="minimumSize">
             <size>
-             <width>150</width>
-             <height>150</height>
+             <width>100</width>
+             <height>30</height>
             </size>
            </property>
-           <property name="text">
-            <string>Фото товара</string>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>30</height>
+            </size>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="QPushButton" name="save_btn">
            <property name="text">
             <string>Сохранить в историю</string>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
-          <spacer name="verticalSpacer_5">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1">
+          <spacer name="verticalSpacer_4">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -344,7 +595,7 @@
           <x>10</x>
           <y>50</y>
           <width>751</width>
-          <height>181</height>
+          <height>151</height>
          </rect>
         </property>
         <column>
@@ -381,40 +632,40 @@
        <widget class="QPushButton" name="clear_history_btn">
         <property name="geometry">
          <rect>
-          <x>211</x>
-          <y>11</y>
-          <width>93</width>
-          <height>28</height>
+          <x>330</x>
+          <y>10</y>
+          <width>150</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
          <string>Очистить</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="export_btn">
-        <property name="geometry">
-         <rect>
-          <x>111</x>
-          <y>11</y>
-          <width>93</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Экспорт</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="refresh_btn">
         <property name="geometry">
          <rect>
-          <x>11</x>
-          <y>11</y>
-          <width>93</width>
-          <height>28</height>
+          <x>10</x>
+          <y>10</y>
+          <width>150</width>
+          <height>30</height>
          </rect>
         </property>
         <property name="text">
          <string>Обновить</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="export_btn">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>10</y>
+          <width>150</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Экспорт</string>
         </property>
        </widget>
       </widget>
@@ -427,7 +678,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>845</width>
      <height>26</height>
     </rect>
    </property>

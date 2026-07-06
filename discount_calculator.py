@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
             discount = self.discount_input.value()
 
             if price <= 0:
-                QMessageBox.warning(self, "Ошибка", "Цена должна быть больше 0!")
+                QMessageBox.warning(self, "Ошибка", "Цена должна быть больше 0")
                 logger.warning("Попытка расчёта с ценой <= 0")
                 return
 
@@ -161,13 +161,13 @@ class MainWindow(QMainWindow):
             image_path = self.current_image_path
 
             if final_price == 0 and saved == 0:
-                QMessageBox.warning(self, "Ошибка", "Сначала выполните расчёт!")
+                QMessageBox.warning(self, "Ошибка", "Сначала выполните расчёт")
                 return
 
             self.save_to_db(price, discount_str, final_price, saved, image_path)
             self.load_history()
-            QMessageBox.information(self, "Сохранено", "Расчёт сохранён в историю!")
-            self.statusBar().showMessage("Запись сохранена!")
+            QMessageBox.information(self, "Сохранено", "Расчёт сохранён в историю")
+            self.statusBar().showMessage("Запись сохранена")
             logger.info(f"Запись сохранена: цена={price}, скидка={discount_str}")
 
         except Exception as e:
@@ -179,7 +179,7 @@ class MainWindow(QMainWindow):
             self.cursor.execute("SELECT COUNT(*) FROM history")
             count = self.cursor.fetchone()[0]
             if count == 0:
-                QMessageBox.warning(self, "Экспорт", "История пуста!")
+                QMessageBox.warning(self, "Экспорт", "История пуста")
                 return
 
             file_path, _ = QFileDialog.getSaveFileName(
@@ -201,7 +201,7 @@ class MainWindow(QMainWindow):
                     ])
 
             QMessageBox.information(self, "Экспорт", f"Данные сохранены в {file_path}")
-            self.statusBar().showMessage("Экспорт выполнен!")
+            self.statusBar().showMessage("Экспорт выполнен")
             logger.info(f"Экспорт CSV: {file_path}")
 
         except Exception as e:
