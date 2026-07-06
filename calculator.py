@@ -11,6 +11,7 @@ class MainWindow(QMainWindow):
 
         self.discounts = []
         self.current_image_path = ""
+        self.history = []
 
         self.calc_btn.clicked.connect(self.calculate_discount)
         self.add_discount_btn.clicked.connect(self.add_discount)
@@ -18,6 +19,10 @@ class MainWindow(QMainWindow):
         self.load_image_btn.clicked.connect(self.load_image)
         self.clear_image_btn.clicked.connect(self.clear_image)
         self.save_btn.clicked.connect(self.save_record)
+
+        self.refresh_btn.clicked.connect(self.refresh_history)
+        self.clear_history_btn.clicked.connect(self.clear_history)
+        self.export_btn.clicked.connect(self.export_csv)
 
         self.statusBar().showMessage("Готов к работе")
 
@@ -85,17 +90,46 @@ class MainWindow(QMainWindow):
             
             final_price = float(self.final_price_label.text().replace(" ₽", ""))
             saved = float(self.saved_label.text().replace(" ₽", ""))
-            image_path = self.current_image_path
 
             if final_price == 0 and saved == 0:
                 QMessageBox.warning(self, "Ошибка", "Сначала выполните расчёт!")
                 return
 
-            QMessageBox.information(self, "Сохранено")
-            self.statusBar().showMessage("Запись сохранена")
+            record = {
+                "price": price,
+                "discount": discount_str,
+                "final_price": final_price,
+                "saved": saved
+            }
+            self.history.append(record)
+            QMessageBox.information(self, "Сохранено", f"Расчёт сохранён!\nВсего записей: {len(self.history)}")
+            self.statusBar().showMessage(f"Сохранено! Всего записей: {len(self.history)}")
 
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", f"Не удалось сохранить:\n{e}")
+
+    def refresh_history(self):
+        if self.history:
+            QMessageBox.information(self, "История", f"В истории {len(self.history)} записей.")
+        else:
+            QMessageBox.information(self, "История", "История пока пуста.")
+        self.statusBar().showMessage(f"Записей в истории: {len(self.history)}")
+
+    def clear_history(self):
+        if not self.history:
+            QMessageBox.information(self, "Информация", "История уже пуста.")
+            return
+        reply = QMessageBox.question(
+            self, "Подтверждение", "Очистить всю историю?",
+            QMessageBox.Yes | QMessageBox.No
+        )
+        if reply == QMessageBox.Yes:
+            self.history.clear()
+            self.statusBar().showMessage("История очищена")
+
+    def export_csv(self):
+        QMessageBox.information(self, "Экспорт")
+        self.statusBar().showMessage("Экспорт CSV ")
 
     def closeEvent(self, event):
         event.accept()
